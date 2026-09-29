@@ -50,17 +50,28 @@
 
 
         <form onsubmit="return submitOrder(event)">
-            <label for="clientName">Ваше имя:</label>
-            <input type="text" id="clientName" required placeholder="Иван">
+    <label for="clientName">Ваше имя:</label>
+    <input type="text" id="clientName" required placeholder="Иван">
 
-            <label for="clientPhone">Телефон:</label>
-            <input type="tel" id="clientPhone" required placeholder="+7 900 000-00-00">
+    <label for="clientPhone">Телефон:</label>
+    <input type="tel" id="clientPhone" required placeholder="+7 900 000-00-00">
 
-            <label for="clientQty">Сколько скрепок нужно:</label>
-            <input type="number" id="clientQty" min="1" value="100" required>
+    <!-- ⬇️⬇️⬇️ НОВЫЙ БЛОК — ВЫБОР ТИПА СКРЕПОК ⬇️⬇️⬇️ -->
+    <label for="clientType">Какой тип скрепок вам нужен:</label>
+    <select id="clientType" required>
+        <option value="">— Выберите тип —</option>
+        <option value="5">Классическая — 5 ₽/шт</option>
+        <option value="10">Цветная — 10 ₽/шт</option>
+        <option value="50">Гигантская — 50 ₽/шт</option>
+        <option value="999">Золотая — 999 ₽/шт</option>
+    </select>
+    <!-- ⬆️⬆️⬆️ КОНЕЦ НОВОГО БЛОКА ⬆️⬆️⬆️ -->
 
-            <button type="submit">Отправить заявку</button>
-        </form>
+    <label for="clientQty">Сколько скрепок нужно:</label>
+    <input type="number" id="clientQty" min="1" value="100" required>
+
+    <button type="submit">Отправить заявку</button>
+</form>
 
         <div class="result" id="orderResult"></div>
     </main>

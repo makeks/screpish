@@ -27,25 +27,56 @@ function calculate() {
 }
 
 function submitOrder(event) {
-    event.preventDefault();
+    event.preventDefault(); // отменяем стандартную отправку
+
+    // ⬇️ Читаем значения из полей
     const name  = document.getElementById('clientName').value.trim();
     const phone = document.getElementById('clientPhone').value.trim();
     const qty   = document.getElementById('clientQty').value;
-
+    const typeSelect = document.getElementById('clientType'); // ссылка на <select>
+    const price = parseFloat(typeSelect.value);               // цена за шт
+    const typeName = typeSelect.options[typeSelect.selectedIndex].text; // текст выбранного варианта
 
     const resultBox = document.getElementById('orderResult');
 
+    // ⬇️ Проверка: заполнены ли поля
+    if (name === '') {
+        alert('Введите ваше имя!');
+        document.getElementById('clientName').focus();
+        return false;
+    }
+    if (phone === '') {
+        alert('Введите номер телефона!');
+        document.getElementById('clientPhone').focus();
+        return false;
+    }
+    if (isNaN(price)) {
+        alert('Пожалуйста, выберите тип скрепок!');
+        typeSelect.focus();
+        return false;
+    }
+    if (qty === '' || parseInt(qty) < 1) {
+        alert('Укажите количество скрепок!');
+        document.getElementById('clientQty').focus();
+        return false;
+    }
 
+    // ⬇️ Считаем итоговую сумму
+    const total = price * parseInt(qty);
+
+    // ⬇️ Формируем красивый ответ с типом, количеством и суммой
     resultBox.innerHTML =
         `Спасибо, <strong>${name}</strong>!<br>
-        Ваша заявка на <strong>${qty}</strong> скрепок принята.<br>
-        Мы позвоним вам по номеру <em>${phone}</em> в течение 10 минут.`;
+        Ваша заявка принята:<br>
+        📎 Тип: <strong>${typeName}</strong><br>
+        📦 Количество: <strong>${qty} шт</strong><br>
+        💰 Итого к оплате: <strong style="color:#00796b; font-size:22px;">
+        ${total.toLocaleString('ru-RU')} ₽</strong><br>
+        📞 Мы позвоним по номеру <em>${phone}</em> в течение 10 минут.`;
 
-    resultBox.classList.add('show');
-
-    event.target.reset();
-
-    return false; 
+    resultBox.classList.add('show'); // анимация появления
+    event.target.reset();            // очищаем все поля формы
+    return false;
 }
 
 
