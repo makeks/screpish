@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СКРЕПЫШ — Заказать</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">📎 СКРЕПЫШ</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="order.html">Заказать</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Оформить заказ</h1>
+
+        <p style="text-align:center; font-size:17px;">
+            Выберите тип скрепок и количество — мы сразу рассчитаем стоимость!
+        </p>
+
+        <h2>🧮 Калькулятор заказа</h2>
+        <form onsubmit="return false">
+
+            <label for="type">Тип скрепок:</label>
+            <select id="type">
+                <option value="5">Классическая — 5 ₽/шт</option>
+                <option value="10">Цветная — 10 ₽/шт</option>
+                <option value="50">Гигантская — 50 ₽/шт</option>
+                <option value="999">Золотая — 999 ₽/шт</option>
+            </select>
+
+            <label for="qty">Количество (шт):</label>
+            <input type="number" id="qty" min="1" value="10">
+
+            <button type="button" onclick="calculate()">Рассчитать стоимость</button>
+        </form>
+
+
+        <div class="result" id="calcResult"></div>
+
+        <h2>📝 Оставить заявку</h2>
+
+
+        <form onsubmit="return submitOrder(event)">
+            <label for="clientName">Ваше имя:</label>
+            <input type="text" id="clientName" required placeholder="Иван">
+
+            <label for="clientPhone">Телефон:</label>
+            <input type="tel" id="clientPhone" required placeholder="+7 900 000-00-00">
+
+            <label for="clientQty">Сколько скрепок нужно:</label>
+            <input type="number" id="clientQty" min="1" value="100" required>
+
+            <button type="submit">Отправить заявку</button>
+        </form>
+
+        <div class="result" id="orderResult"></div>
+    </main>
+
+    <footer>
+        © 2026 СКРЕПЫШ. Все права защищены. 📎
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

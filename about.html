@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СКРЕПЫШ — О компании</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">📎 СКРЕПЫШ</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="order.html">Заказать</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>О компании СКРЕПЫШ</h1>
+
+        <p style="font-size:18px; max-width:800px; margin:0 auto; text-align:justify;">
+            Компания <strong>СКРЕПЫШ</strong> была основана в 1995 году с простой миссией —
+            сделать мир чуть более скреплённым. За 30 лет мы продали более
+            1 000 000 000 скрепок по всей стране.
+            Наш девиз: <em>"Скрепим всё, что можно скрепить!"</em>
+        </p>
+
+        <h2>Обратная связь</h2>
+
+
+        <form onsubmit="return sendFeedback(event)">
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" placeholder="Иван Иванов" required>
+
+            <label for="email">Ваш Email:</label>
+            <input type="email" id="email" placeholder="ivan@example.com" required>
+
+            <label for="message">Сообщение:</label>
+            <textarea id="message" rows="5" placeholder="Напишите нам..." required></textarea>
+
+
+            <button type="submit">Отправить сообщение</button>
+        </form>
+
+
+        <div class="result" id="feedbackResult"></div>
+    </main>
+
+    <footer>
+        © 2026 СКРЕПЫШ. Все права защищены. 📎
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
